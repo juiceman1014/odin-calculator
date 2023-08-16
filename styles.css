@@ -13,8 +13,99 @@ body{
 .calc-container{
     width: 700px;
     height: 700px;
+    grid-template-columns: auto auto auto auto;
+    grid-auto-rows: auto;
+    grid-gap: 20px;
     display: grid;
     border-style: solid;
     border-color: black;
+    grid-template-areas:
+        "display display display display"
+        "clear clear delete delete"
+        "seven eight nine divide"
+        "four five six multiply"
+        "one two three minus"
+        "decimal zero equal plus"
 }
 
+.grid-item{
+    border-style: solid;
+    border-color: black;
+    
+}
+
+.display{
+    grid-area: display;
+}
+
+.clear{
+    grid-area: clear;
+}
+
+.delete{
+    grid-area: delete;
+}
+
+.seven{
+    grid-area: seven;
+}
+
+.eight{
+    grid-area: eight;
+}
+
+.nine{
+    grid-area: nine;
+}
+
+.divide{
+    grid-area: divide;
+}
+
+.four{
+    grid-area: four;
+}
+
+.five{
+    grid-area: five;
+}
+
+.six{
+    grid-area: six;
+}
+
+.multiply{
+    grid-area: multiply;
+}
+
+.one{
+    grid-area: one;
+}
+
+.two{
+    grid-area: two;
+}
+
+.three{
+    grid-area: three;
+}
+
+.minus{
+    grid-area: minus;
+}
+
+.decimal{
+    grid-area: decimal;
+}
+
+.zero{
+    grid-area: zero;
+}
+
+.equal{
+    grid-area: equal;
+}
+
+.plus{
+    grid-area: plus;
+}
