@@ -36,6 +36,12 @@ body{
     align-items: center;
 }
 
+button{
+    cursor: pointer;
+    font-size: 20px;
+    background-color: white;
+}
+
 .display{
     grid-area: display;
 }
