@@ -24,11 +24,11 @@ function divide(num1, num2){
 // console.log(num2);
 // let operator = prompt("What's the operator?");
 
-let equation = {
-    num1: num1,
-    num2: num2,
-    operator:  operator,
-}
+// let equation = {
+//     num1: num1,
+//     num2: num2,
+//     operator:  operator,
+// }
 
 function operate(num1, num2, operator){
     if(operator == "add"){
@@ -44,3 +44,20 @@ function operate(num1, num2, operator){
     }
 }
 
+const display = document.getElementById("display");
+const valueButtons = document.querySelectorAll("button");
+
+valueButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const number = button.textContent;
+
+        if(display.textContent === "0"){
+            display.textContent = number;
+        }else if(number === "Clear"){
+            display.textContent = "0";
+        }
+        else{
+            display.textContent += number;
+        }
+    });
+});
