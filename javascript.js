@@ -33,8 +33,8 @@ function operate(num1, num2, operator){
 }
 
 const display = document.getElementById("display");
-const numVal = document.querySelectorAll(".number");
-const operatorVal = document.querySelectorAll(".operator");
+const numBtn = document.querySelectorAll(".number");
+const operatorBtn = document.querySelectorAll(".operator");
 const clearBtn = document.getElementById("clear");
 const deleteBtn = document.getElementById("delete");
 const calculateBtn = document.getElementById("calculate");
@@ -46,14 +46,14 @@ let userEquation = {
     operator:  null,
 }
 
-numVal.forEach(button => {
+numBtn.forEach(button => {
     button.addEventListener("click", () => {
-        const number = button.textContent;
+        const numValue = button.textContent;
 
         if(display.textContent === "0"){
-            display.textContent = number;
+            display.textContent = numValue;
         }else{
-            display.textContent += number;
+            display.textContent += numValue;
         }
     });
 });
