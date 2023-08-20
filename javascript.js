@@ -40,11 +40,11 @@ const deleteBtn = document.getElementById("delete");
 const calculateBtn = document.getElementById("calculate");
 
 
-// let equation = {
-//     num1: num1,
-//     num2: num2,
-//     operator:  operator,
-// }
+let userEquation = {
+    num1: null,
+    num2: null,
+    operator:  null,
+}
 
 numVal.forEach(button => {
     button.addEventListener("click", () => {
