@@ -47,17 +47,25 @@ function operate(num1, num2, operator){
 const display = document.getElementById("display");
 const valueButtons = document.querySelectorAll("button");
 
+// function removeLastDigit(number){
+//     console.log(number)
+//     let numberStr = number.toString();
+//     numberStr = numberStr.slice(0, -1);
+//     let newNumber = parseFloat(numberStr);
+//     console.log(newNumber);
+//     return newNumber;
+    
+// }
+
 valueButtons.forEach(button => {
     button.addEventListener("click", () => {
         const number = button.textContent;
 
         if(display.textContent === "0"){
             display.textContent = number;
-        }else if(number === "Clear"){
-            display.textContent = "0";
-        }
-        else{
+        }else{
             display.textContent += number;
         }
     });
 });
+
