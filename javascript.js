@@ -69,3 +69,10 @@ numBtn.forEach(button => {
     });
 });
 
+operatorBtn.forEach(button => {
+    button.addEventListener("click", ()=> {
+        userEquation.operator = button.getAttribute("data-value");
+        display.textContent = userEquation.operator;
+    });
+});
+
