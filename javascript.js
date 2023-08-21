@@ -61,7 +61,7 @@ numBtn.forEach(button => {
         if(userEquation.num2 === null){
             userEquation.num2 = numValue;
         }else{
-            userEquation.num2 = numValue;
+            userEquation.num2 += numValue;
         }
         display.textContent = userEquation.num2;
     }
