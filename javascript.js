@@ -48,13 +48,24 @@ let userEquation = {
 
 numBtn.forEach(button => {
     button.addEventListener("click", () => {
-        const numValue = button.textContent;
+        const numValue = button.getAttribute("data-value");
 
-        if(display.textContent === "0"){
-            display.textContent = numValue;
+    if(userEquation.operator === null){
+        if(userEquation.num1 === null){
+            userEquation.num1 = numValue;
         }else{
-            display.textContent += numValue;
+            userEquation.num1 += numValue;
         }
+        display.textContent = userEquation.num1;
+    } else{
+        if(userEquation.num2 === null){
+            userEquation.num2 = numValue;
+        }else{
+            userEquation.num2 = numValue;
+        }
+        display.textContent = userEquation.num2;
+    }
+       
     });
 });
 
