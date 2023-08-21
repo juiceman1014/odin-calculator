@@ -76,3 +76,16 @@ operatorBtn.forEach(button => {
     });
 });
 
+clearBtn.addEventListener("click", () => {
+    clearCurrentEquation();
+})
+
+function clearCurrentEquation(){
+    userEquation = {
+        num1: null,
+        num2: null,
+        operator: null,
+    };
+    display.textContent = "0";
+}
+
