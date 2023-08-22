@@ -89,3 +89,14 @@ function clearCurrentEquation(){
     display.textContent = "0";
 }
 
+deleteBtn.addEventListener("click", () => {
+    if(userEquation.operator === null){
+        userEquation.num1 = userEquation.num1.slice(0, -1) || null;
+        display.textContent = userEquation.num1 || "0";
+    }else{
+        userEquation.num2 = userEquation.num2.slice(0,-1) || null;
+        display.textContent = userEquation.num2 || "0";
+    }
+});
+
+//have to convert from strings back to numbers when claculating later on
