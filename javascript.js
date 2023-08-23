@@ -18,20 +18,6 @@ function divide(num1, num2){
     return quotient;
 }
 
-function operate(num1, num2, operator){
-    if(operator == "add"){
-        return add(num1,num2)
-    }else if (operator == "subtract"){
-        return subtract(num1,num2)
-    }else if (operator == "multiply"){
-        return multiply(num1,num2)
-    }else if (operator == "divide"){
-        return divide(num1,num2)
-    }else{
-        return "ERROR"
-    }
-}
-
 const display = document.getElementById("display");
 const numBtn = document.querySelectorAll(".number");
 const operatorBtn = document.querySelectorAll(".operator");
@@ -99,4 +85,41 @@ deleteBtn.addEventListener("click", () => {
     }
 });
 
-//have to convert from strings back to numbers when claculating later on
+calculateBtn.addEventListener("click", () => {
+    if(userEquation.num1 !== null && userEquation.num2 !== null && userEquation.operator !== null) {
+        calculateEquation();
+    }
+
+});
+
+function calculateEquation(){
+    const num1 = parseFloat(userEquation.num1);
+    const num2 = parseFloat(userEquation.num2);
+    const operator = userEquation.operator;
+    let answer; 
+
+    if(operator == "+"){
+        answer = add(num1,num2);
+        display.textContent = answer;
+        
+    }else if (operator == "-"){
+        answer = subtract(num1,num2);
+        display.textContent = answer;
+        
+    }else if (operator == "x"){
+        answer = multiply(num1,num2);
+        display.textContent = answer;
+        
+    }else if (operator == "÷"){
+        answer = divide(num1,num2);
+        display.textContent = answer;
+        
+    }else{
+        answer = "ERROR";
+    }
+
+    userEquation.num1 = answer;
+    userEquation.num2 = null;
+    userEquation.operator = null;
+
+}
