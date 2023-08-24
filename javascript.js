@@ -71,18 +71,21 @@ function clearCurrentEquation(){
 }
 
 deleteBtn.addEventListener("click", () => {
-    if(userEquation.operator === null){
-        userEquation.num1 = userEquation.num1.slice(0, -1) || null;
+    if(userEquation.operator === ""){
+        userEquation.num1 = userEquation.num1.slice(0, -1);
         display.textContent = userEquation.num1 || "0";
     }else{
-        userEquation.num2 = userEquation.num2.slice(0,-1) || null;
+        userEquation.num2 = userEquation.num2.slice(0,-1);
         display.textContent = userEquation.num2 || "0";
     }
 });
 
 calculateBtn.addEventListener("click", () => {
-    if(userEquation.num1 !== null && userEquation.num2 !== null && userEquation.operator !== null) {
-        calculateEquation();
+    if(userEquation.num1 !== "" && userEquation.num2 !== "" && userEquation.operator != ""){
+        userEquation.num1 = calculateEquation(userEquation.num1, userEquation.num2, userEquation.operator);
+        userEquation.num2 = "";
+        userEquation.operator="";
+        display.textContent = userEquation.num1;
     }
 
 });
