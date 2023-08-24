@@ -49,7 +49,7 @@ operatorBtn.forEach(button => {
         if(userEquation.num1 !== "" && userEquation.num2 !== "" && userEquation.operator !== ""){
             userEquation.num1 = calculateEquation(userEquation.num1, userEquation.num2, userEquation.operator);
             userEquation.num2 = "";
-            userEquation.operator = button.getAttribute("data.value");
+            userEquation.operator = button.getAttribute("data-value");
             display.textContent = userEquation.num1;
         }else if(userEquation.num1 !== "" && userEquation.num2 ===""){
             userEquation.operator = button.getAttribute("data-value");
@@ -63,9 +63,9 @@ clearBtn.addEventListener("click", () => {
 
 function clearCurrentEquation(){
     userEquation = {
-        num1: null,
-        num2: null,
-        operator: null,
+        num1: "",
+        num2: "",
+        operator: "",
     };
     display.textContent = "0";
 }
@@ -90,59 +90,29 @@ calculateBtn.addEventListener("click", () => {
 
 });
 
-function calculateEquation(){
-    const num1 = parseFloat(userEquation.num1);
-    const num2 = parseFloat(userEquation.num2);
-    const operator = userEquation.operator;
+function calculateEquation(num1, num2, operator){
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
+    
     let answer; 
 
     switch(operator){
         case "+":
             answer = add(num1,num2);
-            display.textContent = answer;
-            break;
+            answer = answer.toFixed(2);
+            return answer;
         case "-":
             answer = subtract(num1,num2);
-            display.textContent = answer;
-            break;
+            answer = answer.toFixed(2);
+            return answer;
         case "x":
             answer = multiply(num1,num2);
-            display.textContent = answer;
-            break;
+            answer = answer.toFixed(2);
+            return answer;
         case "÷":
             answer = divide(num1,num2);
-            display.textContent = answer;
-            break;
-
+            answer = answer.toFixed(2);
+            return answer;
     }
-
-
-    //try switch statements
-
-    // if(operator == "+"){
-    //     answer = add(num1,num2);
-    //     display.textContent = answer;
-        
-    // }else if (operator == "-"){
-    //     answer = subtract(num1,num2);
-    //     display.textContent = answer;
-        
-    // }else if (operator == "x"){
-    //     answer = multiply(num1,num2);
-    //     display.textContent = answer;
-    //     b
-    // }else if (operator == "÷"){
-    //     answer = divide(num1,num2);
-    //     display.textContent = answer;
-        
-    // }else{
-    //     answer = "ERROR";
-    // }
-
-    
-
-    userEquation.num1 = answer;
-    userEquation.num2 = null;
-    userEquation.operator = null;
 
 }
