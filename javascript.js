@@ -46,8 +46,14 @@ numBtn.forEach(button => {
 
 operatorBtn.forEach(button => {
     button.addEventListener("click", ()=> {
-        userEquation.operator = button.getAttribute("data-value");
-        display.textContent = userEquation.operator;
+        if(userEquation.num1 !== "" && userEquation.num2 !== "" && userEquation.operator !== ""){
+            userEquation.num1 = calculateEquation(userEquation.num1, userEquation.num2, userEquation.operator);
+            userEquation.num2 = "";
+            userEquation.operator = button.getAttribute("data.value");
+            display.textContent = userEquation.num1;
+        }else if(userEquation.num1 !== "" && userEquation.num2 ===""){
+            userEquation.operator = button.getAttribute("data-value");
+        }
     });
 });
 
