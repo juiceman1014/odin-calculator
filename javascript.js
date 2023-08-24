@@ -27,31 +27,20 @@ const calculateBtn = document.getElementById("calculate");
 
 
 let userEquation = {
-    num1: null,
-    num2: null,
-    operator:  null,
+    num1: "",
+    num2: "",
+    operator:  "",
 }
 
 numBtn.forEach(button => {
     button.addEventListener("click", () => {
-        const numValue = button.getAttribute("data-value");
-
-    if(userEquation.operator === null){
-        if(userEquation.num1 === null){
-            userEquation.num1 = numValue;
-        }else{
-            userEquation.num1 += numValue;
-        }
+    if(userEquation.operator === ""){
+        userEquation.num1 += button.getAttribute("data-value");
         display.textContent = userEquation.num1;
-    } else{
-        if(userEquation.num2 === null){
-            userEquation.num2 = numValue;
-        }else{
-            userEquation.num2 += numValue;
-        }
+    }else{
+        userEquation.num2 += button.getAttribute("data-value");
         display.textContent = userEquation.num2;
     }
-       
     });
 });
 
@@ -98,25 +87,50 @@ function calculateEquation(){
     const operator = userEquation.operator;
     let answer; 
 
-    if(operator == "+"){
-        answer = add(num1,num2);
-        display.textContent = answer;
-        
-    }else if (operator == "-"){
-        answer = subtract(num1,num2);
-        display.textContent = answer;
-        
-    }else if (operator == "x"){
-        answer = multiply(num1,num2);
-        display.textContent = answer;
-        
-    }else if (operator == "÷"){
-        answer = divide(num1,num2);
-        display.textContent = answer;
-        
-    }else{
-        answer = "ERROR";
+    switch(operator){
+        case "+":
+            answer = add(num1,num2);
+            display.textContent = answer;
+            break;
+        case "-":
+            answer = subtract(num1,num2);
+            display.textContent = answer;
+            break;
+        case "x":
+            answer = multiply(num1,num2);
+            display.textContent = answer;
+            break;
+        case "÷":
+            answer = divide(num1,num2);
+            display.textContent = answer;
+            break;
+
     }
+
+
+    //try switch statements
+
+    // if(operator == "+"){
+    //     answer = add(num1,num2);
+    //     display.textContent = answer;
+        
+    // }else if (operator == "-"){
+    //     answer = subtract(num1,num2);
+    //     display.textContent = answer;
+        
+    // }else if (operator == "x"){
+    //     answer = multiply(num1,num2);
+    //     display.textContent = answer;
+    //     b
+    // }else if (operator == "÷"){
+    //     answer = divide(num1,num2);
+    //     display.textContent = answer;
+        
+    // }else{
+    //     answer = "ERROR";
+    // }
+
+    
 
     userEquation.num1 = answer;
     userEquation.num2 = null;
